@@ -5,13 +5,18 @@
 
 # FIRST(L) returns the first element in L
 def FIRST(L: list):
-    return ("%s is the first element in the provided List" % L[0])
+    if L == []:
+        return ("Provided list is empty")
+    else:
+        return ("%s is the first element in the provided List" % L[0])
 
 
 # MAKENULL(L) makes L an empty list
 def MAKENULL(L: list):
-    L = []
-    return ("%s \nProvided list has been made empty" % L)
+    if L == []:
+        return ("Provided list is already null/empty")
+    else:
+        return ("Provided list has been made empty")
 
 
 # RETRIEVE(p, L) returns the element at p in L
@@ -44,3 +49,6 @@ def PREVIOUS(p: int, L: list):
         return ("0 is the first index of a LIST")
     else:
         return ("Previous position is %s" % temp_position)
+
+
+print(MAKENULL([]))
