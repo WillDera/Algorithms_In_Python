@@ -49,6 +49,3 @@ def PREVIOUS(p: int, L: list):
         return ("0 is the first index of a LIST")
     else:
         return ("Previous position is %s" % temp_position)
-
-
-print(MAKENULL([]))
