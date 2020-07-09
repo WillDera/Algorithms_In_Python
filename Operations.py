@@ -5,41 +5,35 @@ test_list = [1, 2, 3, 4]
 
 
 # FIRST(L) returns the first element in L
-def FIRST(L):
-    return L[0]
+def FIRST(L: list):
+    return ("%s is the first element in the provided List" % L[0])
 
 
-# MAKENULL(L) makes L and empty list
-def MAKENULL(L):
+# MAKENULL(L) makes L an empty list
+def MAKENULL(L: list):
     L = []
-    return L
+    return ("%s \nProvided list has been made empty" % L)
 
 
 # RETRIEVE(p, L) returns the element at p in L
-def RETRIEVE(p: int, L):
-    return L[p]
+def RETRIEVE(p: int, L: list):
+    return ("%s is element at position %s in the provided List" % (L[p], p))
 
 
-def NEXT(p, L):
+def NEXT(p: int, L: list):
     if len(L) > p:
         temp_position = p + 1
-        return temp_position
+        return ("Next position is %s" % temp_position)
     else:
-        for k, v in globals().items():
-            if type(v) == list and v == L:
-                return ("Position not in range of %s" % k)
+        return ("Provided position not in range of %s" % L)
 
 
-def PREVIOUS(p, L):
-    temp_postion = (p) - 1
-    if temp_postion <= 0:
-        return ("0 is the first index of a List")
-    elif p > len(L):
-        for k, v in globals().items():
-            if type(v) == list and v == L:
-                return ("Provided positon of index - %s is out of range of list - %s" % (p, k))
+def PREVIOUS(p: int, L: list):
+    temp_position = (p) - 1
+    if temp_position <= 0:
+        return ("0 is the first position of a List")
     else:
-        return ("Previous index is %s" % temp_postion)
+        return ("Provided positon of - %s is out of range of list - %s" % (p, L))
 
 
-print(PREVIOUS(6, [1, 4, 5, 6, 7, 8, 9]))
+print(NEXT(6, [3, 4, 5, 6, 6, 7]))
