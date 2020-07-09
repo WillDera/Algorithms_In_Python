@@ -16,7 +16,12 @@ def MAKENULL(L: list):
 
 # RETRIEVE(p, L) returns the element at p in L
 def RETRIEVE(p: int, L: list):
-    return ("%s is element at position %s in the provided List" % (L[p], p))
+    if p < 0:
+        return IndexError("LIST position cannot be negative")
+    elif p <= len(L):
+        return ("%s is the element at position %s in the provided List" % (L[p], p))
+    else:
+        return IndexError("Requested position not in range of %s" % L)
 
 
 # NEXT(p, L) returns the next position after the provided p in L
