@@ -4,19 +4,19 @@
 # p must be an integer eg. 1, 2, 10, 3, 4 or 5
 
 
-# insert x at position p on L. if p=END(L) insert at the end of L;
-# if L does not have position p, print an error message
 import random
 random_List = []
 
 
+# insert x at position p on L. if p=END(L) insert at the end of L;
+# if L does not have position p, print an error message
 def insert(x, p: int, L: list):
     if p < 0:
         return AttributeError("LIST position cannot be negative")
     elif p <= len(L):
         # print(L)
-        new_list = L.insert(p, x)
-        random_List = new_list
+        L.insert(p, x)
+        random_List[:] = L
         return ("Element %s successfully inserted at index %s in the list\n%s" % (x, p, L))
         # print(random_List)
     else:
@@ -95,3 +95,5 @@ print("%s: %s" % (random, random_List))
 
 # perform operation
 print(PRINT(random_List))
+print(insert(2, 3, random_List))
+print(retrieve(3, random_List))
