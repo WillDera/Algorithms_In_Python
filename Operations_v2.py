@@ -1,5 +1,3 @@
-import random
-
 # L, denotes a given list eg [1, 2, 4], ['hello', 'hide' 'a', 'my name']
 # p, denotes the position in L
 # x, denotes an element
@@ -12,7 +10,7 @@ def insert(x, p: int, L: list):
     if p < 0:
         return AttributeError("LIST position cannot be negative")
     elif p <= len(L):
-        print(L)
+        # print(L)
         L.insert(p, x)
         return ("Element %s successfully inserted at index %s in the list" % (x, p))
         print(L)
@@ -40,12 +38,14 @@ def locate(x, L: list):
 # if p=END(L), then print an error message
 def retrieve(p: int, L: list):
     if p < 0:
-        return IndexError("LIST position cannot be negative")
+        err = -999
+        return IndexError("LIST position cannot be negative\n%s" % err)
     elif p <= len(L):
         print(L)
         return ("%s is the element at position %s in the provided List" % (L[p], p))
     else:
-        return ("Something went wrong")
+        err = -999
+        return ("Something went wrong \n%s" % err)
 
 
 # delete element at positon p on L; if p does not exist on L or if p=END(L), print an error message
@@ -76,28 +76,23 @@ def END(L):
     return p
 
 
-# get name of the random LIST we're about to create
-class NamedObject:
-    def __init__(self, name, obj):
-        self.name = name
-        self.obj = obj
-
-    def __getattr__(self, attr):
-        if attr == 'name':
-            return self.name
-        else:
-            return getattr(self.obj, attr)
-
-
 # randomly create a unique list and get its name
-random.seed(4)
-unnamed = random.sample(range(10, 30), 5)
-random_List = NamedObject('random_List', unnamed)
 
 
 # driver function for our operations
 def main():
-    print("%s: %s" % (random_List.name, unnamed))
+    import random
+
+    random.seed(4)
+    random_List = []
+    for i in range(0, 7):
+        insx = random.randint(1, 30)
+        insert(insx, i, random_List)
+    random = [k for k, v in locals().items() if v == random_List][0]
+    print("%s: %s" % (random, random_List))
+
+    # performing an operation
+    print(retrieve(0, random_List))
 
 
 main()
