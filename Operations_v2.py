@@ -91,9 +91,44 @@ for i in range(0, 7):
     insert(insx, i, random_List)
     continue
 random = [k for k, v in locals().items() if v == random_List][0]
-print("%s: %s" % (random, random_List))
 
 # perform operation
 print(PRINT(random_List))
 print(insert(2, 3, random_List))
 print(retrieve(3, random_List))
+
+
+# def main():
+#     print("%s: %s" % (random, random_List))
+#     opr = (input("What operation would you like to perform on %s: " % random))
+
+#     def callOperation(opr):
+
+#         def insertCaller():
+#             x = (input("x: "))
+#             p = (input("p: "))
+#             L = (input("L: "))
+#             insert(x, p, L)
+
+#         def locateCaller():
+#             x = (input("x: "))
+#             L = (input("L: "))
+#             locate(x, L)
+
+#         def retrieveCaller():
+#             p = (input("p: "))
+#             L = (input("L: "))
+#             retrieve(p, L)
+
+#         switcher = {
+#             "insert": insertCaller(),
+#             "locate": locateCaller(),
+#             "retrieve": retrieveCaller(),
+#             "delete": delCaller(),
+#             "print": printCaller(),
+#             "end": endCaller()
+#         }
+
+
+# if __name__ == "__main__":
+#     main(opr)
