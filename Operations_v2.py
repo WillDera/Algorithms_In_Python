@@ -6,20 +6,27 @@
 
 # insert x at position p on L. if p=END(L) insert at the end of L;
 # if L does not have position p, print an error message
+import random
+random_List = []
+
+
 def insert(x, p: int, L: list):
     if p < 0:
         return AttributeError("LIST position cannot be negative")
     elif p <= len(L):
         # print(L)
-        L.insert(p, x)
-        return ("Element %s successfully inserted at index %s in the list" % (x, p))
-        print(L)
+        new_list = L.insert(p, x)
+        random_List = new_list
+        return ("Element %s successfully inserted at index %s in the list\n%s" % (x, p, L))
+        # print(random_List)
     else:
         return IndexError("Requested position not in range of %s" % L)
 
 
 # return the position of x in L; if x appears more than once return the position of the first appearance;
 # if x does not exist in L print an error message and return return END(L)
+
+
 def locate(x, L: list):
     if L:
         if x in L:
@@ -63,7 +70,7 @@ def delete(p: int, L: list):
 # print the content of L in order of occurrence; print an error message if L is empty
 def PRINT(L):
     if L:
-        print(L)
+        return(L)
     elif L == []:
         return ("Provided LIST is empty")
     else:
@@ -76,23 +83,15 @@ def END(L):
     return p
 
 
+# main driver
 # randomly create a unique list and get its name
+random.seed(4)
+for i in range(0, 7):
+    insx = random.randint(1, 30)
+    insert(insx, i, random_List)
+    continue
+random = [k for k, v in locals().items() if v == random_List][0]
+print("%s: %s" % (random, random_List))
 
-
-# driver function for our operations
-def main():
-    import random
-
-    random.seed(4)
-    random_List = []
-    for i in range(0, 7):
-        insx = random.randint(1, 30)
-        insert(insx, i, random_List)
-    random = [k for k, v in locals().items() if v == random_List][0]
-    print("%s: %s" % (random, random_List))
-
-    # performing an operation
-    print(retrieve(0, random_List))
-
-
-main()
+# perform operation
+print(PRINT(random_List))
