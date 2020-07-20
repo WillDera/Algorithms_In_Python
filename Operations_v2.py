@@ -76,7 +76,7 @@ def END(L):
     return p
 
 
-# randomly generated list using insert(x,p,L)
+# get name of the random LIST we're about to create
 class NamedObject:
     def __init__(self, name, obj):
         self.name = name
@@ -89,11 +89,13 @@ class NamedObject:
             return getattr(self.obj, attr)
 
 
+# randomly create a unique list and get its name
 random.seed(4)
 unnamed = random.sample(range(10, 30), 5)
 random_List = NamedObject('random_List', unnamed)
 
 
+# driver function for our operations
 def main():
     print("%s: %s" % (random_List.name, unnamed))
 
