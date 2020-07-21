@@ -92,43 +92,47 @@ for i in range(0, 7):
     continue
 random = [k for k, v in locals().items() if v == random_List][0]
 
-# perform operation
-print(PRINT(random_List))
-print(insert(2, 3, random_List))
-print(retrieve(3, random_List))
+# # perform operation
+# print(PRINT(random_List))
+# print(insert(2, 3, random_List))
+# print(retrieve(3, random_List))
 
 
-# def main():
-#     print("%s: %s" % (random, random_List))
-#     opr = (input("What operation would you like to perform on %s: " % random))
+def main():
+    print("%s: %s" % (random, random_List))
+    opr = (input("What operation would you like to perform on %s: " % random))
 
-#     def callOperation(opr):
+    def insertCaller():
+        x = (int(input("x: ")))
+        p = (int(input("p: ")))
+        L = random_List
+        print(insert(x, p, L))
 
-#         def insertCaller():
-#             x = (input("x: "))
-#             p = (input("p: "))
-#             L = (input("L: "))
-#             insert(x, p, L)
+    def locateCaller():
+        x = (int(input("x: ")))
+        L = random_List
+        print(locate(x, L))
 
-#         def locateCaller():
-#             x = (input("x: "))
-#             L = (input("L: "))
-#             locate(x, L)
+    def retrieveCaller():
+        p = (int(input("p: ")))
+        L = random_List
+        print(retrieve(p, L))
 
-#         def retrieveCaller():
-#             p = (input("p: "))
-#             L = (input("L: "))
-#             retrieve(p, L)
+        # switcher = {
+        #     "insert": insertCaller(),
+        #     "locate": locateCaller(),
+        #     "retrieve": retrieveCaller(),
+        #     "delete": delCaller(),
+        #     "print": printCaller(),
+        #     "end": endCaller()
+        # }
+    if opr == "insert":
+        insertCaller()
+    if opr == "locate":
+        locateCaller()
+    if opr == "retrieve":
+        retrieveCaller()
 
-#         switcher = {
-#             "insert": insertCaller(),
-#             "locate": locateCaller(),
-#             "retrieve": retrieveCaller(),
-#             "delete": delCaller(),
-#             "print": printCaller(),
-#             "end": endCaller()
-#         }
 
-
-# if __name__ == "__main__":
-#     main(opr)
+if __name__ == "__main__":
+    main()
