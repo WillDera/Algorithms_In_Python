@@ -25,8 +25,6 @@ def insert(x, p: int, L: list):
 
 # return the position of x in L; if x appears more than once return the position of the first appearance;
 # if x does not exist in L print an error message and return return END(L)
-
-
 def locate(x, L: list):
     if L:
         if x in L:
@@ -62,7 +60,8 @@ def delete(p: int, L: list):
     elif p <= len(L):
         print(L)
         del L[p]
-        print(L)
+        random_List[:] = L
+        return (L)
     else:
         return ("Something went wrong")
 
@@ -83,7 +82,6 @@ def END(L):
     return p
 
 
-# main driver
 # randomly create a unique list and get its name
 random.seed(4)
 for i in range(0, 7):
@@ -92,14 +90,10 @@ for i in range(0, 7):
     continue
 random = [k for k, v in locals().items() if v == random_List][0]
 
-# # perform operation
-# print(PRINT(random_List))
-# print(insert(2, 3, random_List))
-# print(retrieve(3, random_List))
 
-
+# main driver
 def main():
-    print("%s: %s" % (random, random_List))
+    print("\n%s: %s" % (random, random_List))
     opr = (input("What operation would you like to perform on %s: " % random))
 
     def insertCaller():
@@ -118,20 +112,36 @@ def main():
         L = random_List
         print(retrieve(p, L))
 
-        # switcher = {
-        #     "insert": insertCaller(),
-        #     "locate": locateCaller(),
-        #     "retrieve": retrieveCaller(),
-        #     "delete": delCaller(),
-        #     "print": printCaller(),
-        #     "end": endCaller()
-        # }
+    def delCaller():
+        p = (int(input("p: ")))
+        L = random_List
+        print(delete(p, L))
+
+    def printCaller():
+        L = random_List
+        print(PRINT(L))
+
+    def endCaller():
+        L = random_List
+        print(END(L))
+
     if opr == "insert":
         insertCaller()
     if opr == "locate":
         locateCaller()
     if opr == "retrieve":
         retrieveCaller()
+    if opr == "delete":
+        delCaller()
+    if opr == "print":
+        printCaller()
+    if opr == "end":
+        endCaller()
+
+    nextOpr = (input("\nWant to perform another operation?: "))
+    if nextOpr == "yes":
+        main()
+    print("Exiting...")
 
 
 if __name__ == "__main__":
