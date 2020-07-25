@@ -1,2 +1,6 @@
 # Algorithms_In_Python
- Solving classical problems with python
+
+Solving classical problems with python
+
+- Algorithms
+- Implementing operations done on data structures (List)
