@@ -13,4 +13,5 @@ def main(user_input):
             print("Input is a str. ")
 
 
-main(user_input)
+if __name__ == "__main__":
+    main(user_input)
