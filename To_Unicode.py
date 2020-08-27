@@ -1,16 +1,18 @@
+from struct import *
+
+print("Float values are not supported")
 user_input = input("Enter value: ")
 
 
 def main(user_input):
     try:
         value = int(user_input)
-        print("Input is an integer. ", value)
+        unicode_value = chr(value)
+        print("unicode value of %s = %s" % (value, unicode_value))
     except ValueError:
-        try:
-            value = float(user_input)
-            print("Input is a float. ", value)
-        except ValueError:
-            print("Input is a str. ")
+        value = str(user_input)
+        unicode_value = ord(value)
+        print("unicode value of %s = %s" % (value, unicode_value))
 
 
 if __name__ == "__main__":
