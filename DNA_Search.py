@@ -30,3 +30,20 @@ def string_to_Gene(s: str) -> Gene:
 
 # converting gene_str to Gene
 my_gene: Gene = string_to_Gene(gene_str)
+
+
+# Linear search - Finding a particular codon in our gene
+def linear_search(gene: Gene, key_codon: Codon) -> bool:
+    for codon in gene:
+        if codon == key_codon:
+            return True
+    return False
+
+
+# performing Linear search Two codons to see if they have our Original Codon
+acg: Codon = (Nucleotide.A, Nucleotide.C, Nucleotide.G)
+gat: Codon = (Nucleotide.G, Nucleotide.A, Nucleotide.T)
+
+# Note that even if the codons are same but of different arrangement, it wont equate to True.
+print(linear_search(my_gene, acg))  # True
+print(linear_search(my_gene, gat))  # False
