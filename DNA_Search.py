@@ -48,4 +48,17 @@ gat: Codon = (Nucleotide.G, Nucleotide.A, Nucleotide.T)
 print(linear_search(my_gene, acg))  # True
 print(linear_search(my_gene, gat))  # False
 
-print(acg in my_gene)
+
+# Binary search
+def binary_search(gene: Gene, key_codon: Codon) -> bool:
+    low: int = 0
+    high : int = len(gene) - 1 
+    while low <= high: # while there is still a search space
+        mid: int (low + high) // 2
+        if gene[mid] < key_codon:
+            low = mid + 1
+        elif gene[mid] > key_codon:
+            high = mid - 1
+        else:
+            return True
+    return False
