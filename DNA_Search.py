@@ -47,3 +47,5 @@ gat: Codon = (Nucleotide.G, Nucleotide.A, Nucleotide.T)
 # Note that even if the codons are same but of different arrangement, it wont equate to True.
 print(linear_search(my_gene, acg))  # True
 print(linear_search(my_gene, gat))  # False
+
+print(acg in my_gene)
