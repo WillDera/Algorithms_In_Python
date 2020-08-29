@@ -52,9 +52,9 @@ print(linear_search(my_gene, gat))  # False
 # Binary search
 def binary_search(gene: Gene, key_codon: Codon) -> bool:
     low: int = 0
-    high : int = len(gene) - 1 
-    while low <= high: # while there is still a search space
-        mid: int (low + high) // 2
+    high: int = len(gene) - 1
+    while low <= high:  # while there is still a search space
+        mid: int = (low + high) // 2
         if gene[mid] < key_codon:
             low = mid + 1
         elif gene[mid] > key_codon:
@@ -62,3 +62,9 @@ def binary_search(gene: Gene, key_codon: Codon) -> bool:
         else:
             return True
     return False
+
+
+# Performing binary search on our gene (sorted, so that our binary search can work with it)
+my_sorted_gene: Gene = sorted(my_gene)
+print(binary_search(my_sorted_gene, acg))  # True
+print(binary_search(my_sorted_gene, gat))  # False
